@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-sample';
+  width = 0;
+  height = 0;
+
+  complete(): void {
+    this.width = document.body.clientWidth;
+    this.height = document.body.clientHeight;
+  }
 }
