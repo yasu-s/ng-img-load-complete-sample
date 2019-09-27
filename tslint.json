@@ -1,5 +1,12 @@
 {
-  "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "codelyzer",
+    "tslint-plugin-prettier"
+  ],
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "array-type": false,
     "arrow-parens": false,
@@ -84,9 +91,20 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
-  },
-  "rulesDirectory": [
-    "codelyzer"
-  ]
+    "use-pipe-transform-interface": true,
+    "no-submodule-imports": false,
+    "no-parameter-reassignment": true,
+    "prettier": [
+      true, {
+        "printWidth": 140,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "arrowParens": "always"
+      }
+    ]
+  }
 }
