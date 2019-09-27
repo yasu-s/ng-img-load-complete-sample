@@ -18,11 +18,7 @@ export class ImgLoadCompleteDirective implements AfterViewInit {
   ngAfterViewInit(): void {
     // src取得
     const images = document.getElementsByTagName('img');
-    const paths: string[] = [];
-    for (let i = 0; i < images.length; i++) {
-      paths.push(images.item(i).src);
-    }
-
+    const paths = Array.from(images).map((i) => i.src);
     console.log('ngAfterViewInit', paths);
 
     // 画像読み込み
