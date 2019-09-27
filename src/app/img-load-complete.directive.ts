@@ -1,12 +1,12 @@
-import { Directive, Output, EventEmitter, AfterViewInit,  } from '@angular/core';
-import { from } from 'rxjs';
+import { Directive, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { from, Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
 /**
  *
  */
 @Directive({
-  selector: '[appImgLoadComplete]'
+  selector: '[appImgLoadComplete]',
 })
 export class ImgLoadCompleteDirective implements AfterViewInit {
   /** appImgLoadComplete - EventEmitter */
@@ -31,13 +31,15 @@ export class ImgLoadCompleteDirective implements AfterViewInit {
       .subscribe(
         (data) => {
           console.log('loadImage Complete.', data);
-        }, (err) => {
+        },
+        (err) => {
           console.error(err);
           this.loadComplete.emit();
-        }, () => {
+        },
+        () => {
           console.log('complete');
           this.loadComplete.emit();
-        }
+        },
       );
   }
 
@@ -46,10 +48,13 @@ export class ImgLoadCompleteDirective implements AfterViewInit {
    * @param src img.src
    */
   loadImage(src: string) {
-    return new Promise<{ src: string, success: boolean }>((resolve, reject) => {
+    return new Observable<{ src: string; success: boolean }>((observer) => {
       const img = new Image();
-      img.onload = () => resolve({ src, success: true });
-      img.onerror = (e) => reject(e);
+      img.onload = () => {
+        observer.next({ src, success: true });
+        observer.complete();
+      };
+      img.onerror = (e) => observer.error(e);
       img.src = src;
     });
   }

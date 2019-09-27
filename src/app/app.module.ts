@@ -5,14 +5,8 @@ import { AppComponent } from './app.component';
 import { ImgLoadCompleteDirective } from './img-load-complete.directive';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ImgLoadCompleteDirective,
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, ImgLoadCompleteDirective],
+  imports: [BrowserModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
