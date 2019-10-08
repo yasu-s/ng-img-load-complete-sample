@@ -43,7 +43,7 @@ export class ImgLoadCompleteDirective implements AfterViewInit {
    * 画像読み込み
    * @param src img.src
    */
-  loadImage(src: string) {
+  loadImage(src: string): Observable<{ src: string; success: boolean }> {
     return new Observable<{ src: string; success: boolean }>((observer) => {
       const img = new Image();
       img.onload = () => {
