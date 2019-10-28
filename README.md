@@ -24,7 +24,7 @@ git clone git@github.com:yasu-s/ng-img-load-complete-sample.git
 ## 2. パッケージインストール  
 
 ```
-cdng-img-load-complete-sample
+cd ng-img-load-complete-sample
 yarn
 ```
 
