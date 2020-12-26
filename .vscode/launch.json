@@ -9,7 +9,8 @@
       "request": "attach",
       "name": "Attach to Chrome",
       "port": 9222,
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "disableNetworkCache": true
     },
     {
       "type": "chrome",
@@ -19,7 +20,8 @@
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": [
           "--remote-debugging-port=9222"
-      ]
+      ],
+      "disableNetworkCache": true
     }
   ]
 }
